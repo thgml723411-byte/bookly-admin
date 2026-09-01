@@ -1,0 +1,273 @@
+.visitors {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+
+  padding: 32px;
+}
+
+.pageTitle {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+
+  h2 {
+    font-size: 24px;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    color: #1f2430;
+  }
+
+  p {
+    font-size: 14px;
+    color: #8a8f9c;
+  }
+}
+
+.topLine {
+  display: flex;
+  align-items: stretch;
+  gap: 24px;
+}
+
+.bottomLine {
+  display: flex;
+  align-items: stretch;
+  gap: 24px;
+}
+
+.trafficSection,
+.trendSection,
+.deviceSection {
+  display: flex;
+  flex-direction: column;
+
+  background-color: #fff;
+  border: 1px solid #e9e3e6;
+  border-radius: 10px;
+  padding: 28px;
+}
+
+.trafficSection {
+  flex: 1;
+  min-width: 260px;
+}
+
+.trendSection {
+  flex: 2;
+  min-width: 0;
+}
+
+.deviceSection {
+  flex: 1;
+  min-width: 0;
+}
+
+.secTitle {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+
+  margin-bottom: 24px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #efe7ea;
+
+  h3 {
+    font-size: 17px;
+    font-weight: 700;
+    color: #1f2430;
+    margin-bottom: 4px;
+  }
+
+  p {
+    font-size: 13px;
+    font-weight: 600;
+    color: #7B5A99;
+  }
+}
+
+.refreshBtn {
+  padding: 6px 14px;
+
+  font-size: 13px;
+  font-weight: 600;
+  color: #7B5A99;
+
+  background-color: rgba(123, 90, 153, 0.08);
+  border: 0;
+  border-radius: 999px;
+  transition: background-color 0.2s, color 0.2s;
+
+  &:hover {
+    color: #fff;
+    background-color: #7B5A99;
+  }
+}
+
+.chartWrap {
+  flex: 1;
+  min-height: 300px;
+}
+
+.barWrap {
+  flex: 1;
+  min-height: 260px;
+}
+
+.progresList {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.progresItem {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+
+  > div {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+
+    strong {
+      font-size: 14px;
+      font-weight: 700;
+      color: #1f2430;
+    }
+
+    span {
+      font-size: 13px;
+      font-weight: 600;
+      color: #8a8f9c;
+    }
+  }
+
+  progress {
+    width: 100%;
+    height: 8px;
+
+    appearance: none;
+    -webkit-appearance: none;
+
+    border: 0;
+    border-radius: 999px;
+    overflow: hidden;
+
+    &::-webkit-progress-bar {
+      background-color: #f1eef2;
+      border-radius: 999px;
+    }
+
+    &::-webkit-progress-value {
+      background-color: #E20942;
+      border-radius: 999px;
+      transition: width 0.3s ease;
+    }
+
+    &::-moz-progress-bar {
+      background-color: #E20942;
+      border-radius: 999px;
+    }
+  }
+}
+
+.rankingList {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  margin-top: 20px;
+}
+
+.rankingltem {
+  border: 1px solid #efe7ea;
+  border-radius: 8px;
+  overflow: hidden;
+
+  button {
+    display: grid;
+    grid-template-columns: 28px 1fr auto 16px;
+    align-items: center;
+    gap: 14px;
+
+    width: 100%;
+    padding: 12px 16px;
+
+    background-color: #fff;
+    transition: background-color 0.2s;
+
+    &:hover {
+      background-color: #faf7f9;
+    }
+
+    span {
+      font-size: 13px;
+      font-weight: 600;
+      color: #1f2430;
+      text-align: left;
+    }
+  }
+}
+
+.userDetail {
+  display: flex;
+  flex-direction: column;
+
+  height: 0;
+  opacity: 0;
+  padding: 0 16px;
+  overflow: hidden;
+
+  background-color: #faf7f9;
+
+  dl {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  dl > div {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+  }
+
+  dt {
+    font-size: 12px;
+    font-weight: 600;
+    color: #8a8f9c;
+  }
+
+  dd {
+    font-size: 12px;
+    font-weight: 600;
+    color: #1f2430;
+  }
+}
+
+@media (max-width: 1100px) {
+  .topLine,
+  .bottomLine {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 720px) {
+  .visitors {
+    padding: 20px;
+  }
+
+  .trafficSection,
+  .trendSection,
+  .deviceSection {
+    padding: 20px;
+  }
+
+  .secTitle {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}

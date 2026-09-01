@@ -1,0 +1,406 @@
+/* =========================================================
+   게시판 관리 페이지 스타일
+========================================================= */
+
+$purple: #7b5a99;
+$purple-dark: #5f3f80;
+$purple-soft: #f3edf8;
+$ink: #1f2430;
+$muted: #8a8f9c;
+$line: #e9e3e6;
+$line-soft: #efe7ea;
+$radius: 12px;
+$danger: #d1495b;
+$danger-soft: #fbe9eb;
+
+.board {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  padding: 32px;
+}
+
+/* ---------- 페이지 헤딩 ---------- */
+.heading {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+
+  h2 {
+    font-size: 24px;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    color: $ink;
+  }
+
+  p {
+    font-size: 14px;
+    color: $muted;
+  }
+}
+
+/* ---------- 2열 레이아웃 ---------- */
+.gridBoard {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  align-items: start;
+  gap: 24px;
+}
+
+/* ---------- 카드 ---------- */
+.card {
+  display: flex;
+  flex-direction: column;
+
+  background-color: #fff;
+  border: 1px solid $line;
+  border-radius: $radius;
+  padding: 20px;
+  box-shadow: 0 1px 2px rgba(31, 36, 48, 0.04);
+}
+
+.cardTitle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+
+  padding: 14px 18px;
+  margin-bottom: 18px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, $purple 0%, $purple-dark 100%);
+
+  h3 {
+    font-size: 15px;
+    font-weight: 700;
+    color: #fff;
+  }
+
+  p {
+    margin-top: 3px;
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.75);
+  }
+}
+
+.countBadge {
+  flex-shrink: 0;
+  padding: 4px 12px;
+  font-size: 12px;
+  font-weight: 700;
+  color: #fff;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 999px;
+}
+
+/* ---------- 검색 / 필터 ---------- */
+.searchBar {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 16px;
+
+  input {
+    flex: 1;
+    padding: 9px 12px;
+    font-size: 13px;
+    border: 1px solid $line;
+    border-radius: 8px;
+
+    &:focus-visible {
+      outline: 2px solid $purple;
+      outline-offset: 1px;
+    }
+  }
+
+  select {
+    width: auto;
+    min-width: 100px;
+    padding: 9px 12px;
+    font-size: 13px;
+    font-weight: 600;
+    color: $ink;
+    background: #fff
+      url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%237b5a99' stroke-width='3'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E")
+      no-repeat right 12px center;
+    border: 1px solid $line;
+    border-radius: 8px;
+    appearance: none;
+
+    &:focus-visible {
+      outline: 2px solid $purple;
+      outline-offset: 1px;
+    }
+  }
+}
+
+/* ---------- 리뷰 목록 테이블 ---------- */
+.tableWrap {
+  flex: 1;
+  overflow: auto;
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  th,
+  td {
+    padding: 10px 12px;
+    text-align: left;
+    font-size: 13px;
+    white-space: nowrap;
+  }
+
+  thead th {
+    position: sticky;
+    top: 0;
+    background: #faf7f9;
+    font-weight: 700;
+    color: $muted;
+    border-bottom: 1px solid $line-soft;
+  }
+
+  tbody tr {
+    cursor: pointer;
+    border-bottom: 1px solid #f2edf0;
+    transition: background 0.15s;
+
+    &:hover {
+      background: #f7f5f9;
+    }
+  }
+
+  tbody td {
+    color: $ink;
+  }
+}
+
+.rating {
+  color: $purple;
+  letter-spacing: 1px;
+}
+
+/* ---------- 이벤트 피드 목록 ---------- */
+.feedList {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  overflow: auto;
+}
+
+.feedItem {
+  padding: 14px 16px;
+  border: 1px solid $line-soft;
+  border-radius: 10px;
+  transition: border-color 0.15s, box-shadow 0.15s;
+
+  &:hover {
+    border-color: $line;
+    box-shadow: 0 2px 8px rgba(31, 36, 48, 0.06);
+  }
+}
+
+.feedInfo {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.feedTitle {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+
+  strong {
+    font-size: 14px;
+    font-weight: 700;
+    color: $ink;
+  }
+
+  span {
+    align-self: flex-start;
+    padding: 2px 9px;
+    font-size: 11px;
+    font-weight: 700;
+    border-radius: 999px;
+  }
+}
+
+.feedContent {
+  font-size: 12px;
+  color: $muted;
+  line-height: 1.5;
+}
+
+.feedDate {
+  font-size: 11px;
+  color: $muted;
+}
+
+.badgeOpen {
+  color: $purple-dark;
+  background: $purple-soft;
+}
+
+.badgeClose {
+  color: $muted;
+  background: #f1eef2;
+}
+
+.feedBtns {
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+  gap: 6px;
+
+  button {
+    padding: 6px 12px;
+    font-size: 12px;
+    font-weight: 600;
+    color: $ink;
+    background: #fff;
+    border: 1px solid $line;
+    border-radius: 7px;
+    white-space: nowrap;
+    transition: all 0.15s;
+
+    &:first-child {
+      color: $purple-dark;
+      background: $purple-soft;
+      border-color: $purple-soft;
+
+      &:hover {
+        color: #fff;
+        background: $purple;
+        border-color: $purple;
+      }
+    }
+
+    &:hover {
+      color: $purple-dark;
+      border-color: $purple;
+    }
+
+    &:last-child:hover {
+      color: $danger;
+      background: $danger-soft;
+      border-color: $danger;
+    }
+  }
+}
+
+/* ---------- 상세 모달 ---------- */
+.modalDim {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+
+  background: rgba(31, 36, 48, 0.45);
+}
+
+.modal {
+  width: 100%;
+  max-width: 420px;
+  max-height: 85vh;
+  overflow-y: auto;
+
+  background: #fff;
+  border-radius: 14px;
+  padding: 24px;
+  box-shadow: 0 20px 50px rgba(31, 36, 48, 0.25);
+}
+
+.modalHead {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+
+  margin-bottom: 18px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid $line-soft;
+
+  p {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    color: $purple;
+  }
+
+  h3 {
+    margin-top: 4px;
+    font-size: 17px;
+    font-weight: 800;
+    color: $ink;
+  }
+
+  button {
+    flex-shrink: 0;
+    width: 30px;
+    height: 30px;
+    font-size: 14px;
+    font-weight: 700;
+    color: $muted;
+    background: #f2edf0;
+    border-radius: 8px;
+
+    &:hover {
+      color: $ink;
+      background: #e7dfe6;
+    }
+  }
+}
+
+.modalList {
+  display: flex;
+  flex-direction: column;
+
+  > div {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+
+    padding: 11px 0;
+    border-bottom: 1px solid #f4eff2;
+
+    &:last-child {
+      border-bottom: 0;
+    }
+  }
+
+  dt {
+    font-size: 13px;
+    color: $muted;
+  }
+
+  dd {
+    font-size: 13px;
+    font-weight: 700;
+    color: $ink;
+  }
+}
+
+/* ---------- 반응형 ---------- */
+@media (max-width: 1100px) {
+  .gridBoard {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 720px) {
+  .board {
+    padding: 20px;
+  }
+
+  .searchBar {
+    flex-direction: column;
+  }
+}

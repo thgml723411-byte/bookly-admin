@@ -1,0 +1,195 @@
+.home {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+
+  padding: 32px;
+}
+
+.heading {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.title {
+  font-size: 24px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: #1f2430;
+}
+
+.desc {
+  font-size: 14px;
+  color: #8a8f9c;
+}
+
+.card {
+  background-color: #fff;
+  border: 1px solid #e9e3e6;
+  border-radius: 10px;
+  padding: 28px;
+}
+
+.colHeader {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+
+  margin-bottom: 24px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #efe7ea;
+}
+
+.cardTitle {
+  font-size: 17px;
+  font-weight: 700;
+  color: #1f2430;
+  margin-bottom: 4px;
+}
+
+.cardSubtitle {
+  font-size: 13px;
+  font-weight: 600;
+  color: #7B5A99;
+}
+
+.weekButtons {
+  display: flex;
+  gap: 18px;
+}
+
+.weekButton {
+  padding: 4px 2px 8px;
+
+  font-size: 13px;
+  font-weight: 600;
+  color: #9a9a9a;
+
+  background: none;
+  border: 0;
+  border-bottom: 2px solid transparent;
+  transition: color 0.2s, border-color 0.2s;
+
+  &:hover {
+    color: #1f2430;
+  }
+}
+
+.weekButtonActive {
+  color: #1f2430;
+  border-bottom-color: #7B5A99;
+
+  &:hover {
+    color: #1f2430;
+  }
+}
+
+.chartsRow {
+  display: flex;
+  align-items: stretch;
+  gap: 28px;
+}
+
+.chartCol {
+  flex: 2;
+  min-width: 0;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.chartWrap {
+  height: 300px;
+}
+
+.donutWrap {
+  flex: 1;
+  min-width: 200px;
+
+  display: flex;
+  flex-direction: column;
+
+  padding-left: 28px;
+  border-left: 1px solid #efe7ea;
+}
+
+.donutCanvas {
+  position: relative;
+  flex: 1;
+  height: 300px;
+}
+
+.barCol {
+  flex: 2;
+  min-width: 0;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.barWrap {
+  height: 300px;
+}
+
+.pieWrap {
+  flex: 1;
+  min-width: 200px;
+
+  display: flex;
+  flex-direction: column;
+
+  padding-left: 28px;
+  border-left: 1px solid #efe7ea;
+}
+
+.pieCanvas {
+  position: relative;
+  flex: 1;
+  height: 300px;
+}
+
+@media (max-width: 900px) {
+  .chartsRow {
+    flex-direction: column;
+  }
+
+  .chartWrap,
+  .barWrap {
+    height: 280px;
+  }
+
+  .donutWrap,
+  .pieWrap {
+    padding-left: 0;
+    padding-top: 24px;
+    border-left: 0;
+    border-top: 1px solid #efe7ea;
+  }
+
+  .donutCanvas,
+  .pieCanvas {
+    height: 280px;
+  }
+}
+
+@media (max-width: 720px) {
+  .home {
+    padding: 20px;
+  }
+
+  .card {
+    padding: 20px;
+  }
+
+  .colHeader {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .weekButtons {
+    justify-content: flex-end;
+  }
+}

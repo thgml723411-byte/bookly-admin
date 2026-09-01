@@ -1,0 +1,460 @@
+.user {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+
+  padding: 32px;
+}
+
+.pageTitle {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+
+  h2 {
+    font-size: 24px;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    color: #1f2430;
+  }
+
+  p {
+    font-size: 14px;
+    color: #8a8f9c;
+  }
+}
+
+.secTitle {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+
+  margin-bottom: 24px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #efe7ea;
+
+  h3 {
+    font-size: 17px;
+    font-weight: 700;
+    color: #1f2430;
+    margin-bottom: 4px;
+  }
+
+  p {
+    font-size: 13px;
+    font-weight: 600;
+    color: #7B5A99;
+  }
+}
+
+.summarySection {
+  background-color: #fff;
+  border: 1px solid #e9e3e6;
+  border-radius: 10px;
+  padding: 28px;
+}
+
+.poList {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.poItem {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  padding: 18px;
+
+  background-color: #faf7f9;
+  border: 1px solid #efe7ea;
+  border-radius: 8px;
+
+  > div {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 8px;
+
+    span {
+      font-size: 13px;
+      font-weight: 600;
+      color: #8a8f9c;
+    }
+
+    strong {
+      font-size: 19px;
+      font-weight: 800;
+      color: #1f2430;
+    }
+  }
+
+  progress {
+    width: 100%;
+    height: 8px;
+
+    appearance: none;
+    -webkit-appearance: none;
+
+    border: 0;
+    border-radius: 999px;
+    overflow: hidden;
+
+    &::-webkit-progress-bar {
+      background-color: #f1eef2;
+      border-radius: 999px;
+    }
+
+    &::-webkit-progress-value {
+      background-color: #E20942;
+      border-radius: 999px;
+      transition: width 0.3s ease;
+    }
+
+    &::-moz-progress-bar {
+      background-color: #E20942;
+      border-radius: 999px;
+    }
+  }
+}
+
+.topLine {
+  display: flex;
+  align-items: stretch;
+  gap: 24px;
+}
+
+.bottomLine {
+  display: flex;
+  align-items: stretch;
+  gap: 24px;
+}
+
+.trendSection,
+.scatterSection {
+  display: flex;
+  flex-direction: column;
+
+  background-color: #fff;
+  border: 1px solid #e9e3e6;
+  border-radius: 10px;
+  padding: 28px;
+}
+
+.trendSection {
+  flex: 3;
+  min-width: 0;
+}
+
+.scatterSection {
+  flex: 2;
+  min-width: 260px;
+}
+
+.chartWrap {
+  flex: 1;
+  min-height: 300px;
+}
+
+.listSection,
+.bookSection,
+.raderSection {
+  display: flex;
+  flex-direction: column;
+
+  flex: 1;
+  min-width: 0;
+  min-height: 280px;
+
+  background-color: #fff;
+  border: 1px solid #e9e3e6;
+  border-radius: 10px;
+  padding: 28px;
+}
+
+/* ---------- 회원 검색 영역 ---------- */
+.searchArea {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 16px;
+
+  input {
+    flex: 1;
+    padding: 9px 12px;
+    font-size: 13px;
+    border: 1px solid #e9e3e6;
+    border-radius: 8px;
+
+    &:focus-visible {
+      outline: 2px solid #7b5a99;
+      outline-offset: 1px;
+    }
+  }
+
+  select {
+    width: auto;
+    min-width: 90px;
+    padding: 9px 12px;
+    font-size: 13px;
+    font-weight: 600;
+    color: #1f2430;
+    border: 1px solid #e9e3e6;
+    border-radius: 8px;
+  }
+}
+
+/* ---------- 회원 목록 테이블 ---------- */
+.tableWrap {
+  flex: 1;
+  overflow: auto;
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  th,
+  td {
+    padding: 10px 12px;
+    text-align: left;
+    font-size: 13px;
+    white-space: nowrap;
+  }
+
+  thead th {
+    position: sticky;
+    top: 0;
+    background: #faf7f9;
+    font-weight: 700;
+    color: #8a8f9c;
+    border-bottom: 1px solid #efe7ea;
+  }
+
+  tbody tr {
+    cursor: pointer;
+    border-bottom: 1px solid #f2edf0;
+    transition: background 0.15s;
+
+    &:hover {
+      background: #f7f5f9;
+    }
+  }
+
+  tbody td {
+    color: #1f2430;
+  }
+}
+
+/* ---------- 레이더 차트 영역 ---------- */
+.raderSection .chartWrap {
+  flex: 1;
+  min-height: 260px;
+}
+
+/* ---------- 이달의 도서 ---------- */
+.bookFeature {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  text-align: center;
+}
+
+.bookCover {
+  width: 132px;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 10px;
+  box-shadow: 0 10px 24px rgba(31, 36, 48, 0.18);
+}
+
+.bookInfo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+
+  h4 {
+    font-size: 16px;
+    font-weight: 800;
+    color: #1f2430;
+  }
+}
+
+.bookBadge {
+  padding: 3px 10px;
+  font-size: 11px;
+  font-weight: 700;
+  color: #7b5a99;
+  background: #f3edf8;
+  border-radius: 999px;
+}
+
+.bookAuthor {
+  font-size: 12px;
+  color: #8a8f9c;
+}
+
+.bookStats {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  gap: 28px;
+
+  margin-top: 6px;
+  padding-top: 16px;
+  border-top: 1px solid #efe7ea;
+
+  > div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+
+    span {
+      font-size: 11px;
+      color: #8a8f9c;
+    }
+
+    strong {
+      font-size: 15px;
+      font-weight: 800;
+      color: #1f2430;
+    }
+  }
+}
+
+/* ---------- 회원 상세 모달 ---------- */
+.madalbig {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+
+  background: rgba(31, 36, 48, 0.45);
+}
+
+.modal {
+  width: 100%;
+  max-width: 420px;
+  max-height: 85vh;
+  overflow-y: auto;
+
+  background: #fff;
+  border-radius: 14px;
+  padding: 24px;
+  box-shadow: 0 20px 50px rgba(31, 36, 48, 0.25);
+
+  > div:first-child {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 12px;
+
+    margin-bottom: 18px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid #efe7ea;
+
+    h3 {
+      font-size: 17px;
+      font-weight: 800;
+      color: #1f2430;
+    }
+
+    p {
+      margin-top: 4px;
+      font-size: 12px;
+      color: #8a8f9c;
+    }
+
+    button {
+      flex-shrink: 0;
+      width: 30px;
+      height: 30px;
+      font-size: 14px;
+      font-weight: 700;
+      color: #8a8f9c;
+      background: #f2edf0;
+      border-radius: 8px;
+
+      &:hover {
+        color: #1f2430;
+        background: #e7dfe6;
+      }
+    }
+  }
+}
+
+.modalList {
+  display: flex;
+  flex-direction: column;
+
+  > div {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+
+    padding: 11px 0;
+    border-bottom: 1px solid #f4eff2;
+
+    &:last-child {
+      border-bottom: 0;
+    }
+  }
+
+  dt {
+    font-size: 13px;
+    color: #8a8f9c;
+  }
+
+  dd {
+    font-size: 13px;
+    font-weight: 700;
+    color: #1f2430;
+  }
+}
+
+@media (max-width: 1100px) {
+  .topLine,
+  .bottomLine {
+    flex-direction: column;
+  }
+
+  .poList {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 720px) {
+  .user {
+    padding: 20px;
+  }
+
+  .summarySection,
+  .trendSection,
+  .scatterSection,
+  .listSection,
+  .bookSection,
+  .raderSection {
+    padding: 20px;
+  }
+
+  .secTitle {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .poList {
+    grid-template-columns: 1fr;
+  }
+}

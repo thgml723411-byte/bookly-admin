@@ -1,0 +1,54 @@
+.sidebar{
+    width: 220px;
+    flex-shrink: 0;
+    padding: 30px 20px;
+    background-color: #3B2A50;
+
+    .nav{
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+
+        a{
+           position: relative;
+           height: 50px;
+           display: flex;
+           align-items: center;
+           padding: 0 20px;
+           border-radius: 10px;
+           color: #C9BEDA;
+           font-size: 15px;
+           font-weight: 600;
+           z-index: 10;
+           transition: all 0.3s;
+           cursor: pointer;
+
+           &:hover{
+              color: white;
+           }
+        }
+
+        a.active{
+           color: white;
+           font-weight: 800;
+
+           &:hover{
+              color: white;
+           }
+        }
+
+        .moveBox{
+            position: absolute; //내가정확한위치에가길원해서
+            top : 0; left: 0; //초기값만줌
+            width: 100%;
+            height: 50px;
+            border-radius: 10px;
+            background-color: #E20942;
+            z-index: 1;
+            pointer-events: none;
+        }
+    }
+}
+
+//a태그는 NavLink,nav태그들의지칭함

@@ -1,0 +1,436 @@
+/* =========================================================
+   도서 관리 페이지 스타일
+========================================================= */
+
+$purple: #7b5a99;
+$purple-dark: #5f3f80;
+$purple-soft: #f3edf8;
+$ink: #1f2430;
+$muted: #8a8f9c;
+$line: #e9e3e6;
+$line-soft: #efe7ea;
+$radius: 12px;
+
+.book {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  padding: 32px;
+}
+
+/* ---------- 페이지 헤딩 ---------- */
+.heading {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+
+  h2 {
+    font-size: 24px;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    color: $ink;
+  }
+
+  p {
+    font-size: 14px;
+    color: $muted;
+  }
+}
+
+/* ---------- 3열 레이아웃 ---------- */
+.booklayout {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  align-items: start;
+  gap: 24px;
+}
+
+.col {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  min-width: 0;
+}
+
+/* ---------- 카드 ---------- */
+.card {
+  background-color: #fff;
+  border: 1px solid $line;
+  border-radius: $radius;
+  padding: 20px;
+  box-shadow: 0 1px 2px rgba(31, 36, 48, 0.04);
+}
+
+.cardTitle {
+  display: flex;
+  align-items: center;
+  padding: 12px 16px;
+  margin-bottom: 18px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, $purple 0%, $purple-dark 100%);
+
+  h3 {
+    font-size: 15px;
+    font-weight: 700;
+    color: #fff;
+  }
+}
+
+/* ---------- 카테고리 필터 ---------- */
+.categorylist {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 14px;
+
+  button {
+    padding: 5px 12px;
+    font-size: 12px;
+    font-weight: 600;
+    color: $muted;
+    background: #f5f3f7;
+    border: 1px solid transparent;
+    border-radius: 999px;
+    transition: all 0.15s;
+
+    &:hover {
+      color: $purple;
+      background: $purple-soft;
+    }
+  }
+}
+
+/* ---------- 기간 선택 ---------- */
+.periodSelect {
+  margin-bottom: 16px;
+
+  select {
+    width: auto;
+    min-width: 110px;
+    padding: 7px 32px 7px 12px;
+    font-size: 13px;
+    font-weight: 600;
+    color: $ink;
+    background: #fff
+      url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%237b5a99' stroke-width='3'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E")
+      no-repeat right 12px center;
+    border: 1px solid $line;
+    border-radius: 8px;
+
+    &:focus-visible {
+      outline: 2px solid $purple;
+      outline-offset: 1px;
+    }
+  }
+}
+
+/* ---------- 인기 도서 순위 ---------- */
+.rankList {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.rankItem {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 8px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background 0.15s;
+
+  &:hover {
+    background: #f7f5f9;
+  }
+
+  img {
+    width: 44px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 4px;
+    flex-shrink: 0;
+  }
+}
+
+.rankItemActive {
+  background: $purple-soft;
+
+  &:hover {
+    background: $purple-soft;
+  }
+}
+
+.rankNum {
+  width: 22px;
+  text-align: center;
+  font-size: 16px;
+  font-weight: 800;
+  color: $purple;
+  flex-shrink: 0;
+}
+
+.rankInfo {
+  min-width: 0;
+
+  strong {
+    display: block;
+    font-size: 13px;
+    font-weight: 700;
+    color: $ink;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  p {
+    margin-top: 2px;
+    font-size: 12px;
+    color: $muted;
+  }
+
+  span {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    margin-top: 6px;
+    font-size: 11px;
+    color: $purple;
+
+    b {
+      padding: 1px 6px;
+      font-size: 10px;
+      font-weight: 700;
+      text-transform: uppercase;
+      color: #fff;
+      background: $purple;
+      border-radius: 4px;
+    }
+  }
+}
+
+/* ---------- 인기 키워드 ---------- */
+.keywordList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.keyword {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 13px;
+  font-size: 13px;
+  font-weight: 600;
+  color: $ink;
+  background: #f5f3f7;
+  border: 1px solid $line;
+  border-radius: 999px;
+  transition: all 0.15s;
+
+  &:hover {
+    color: #fff;
+    background: $purple;
+    border-color: $purple;
+
+    .keywordRank {
+      color: #fff;
+    }
+  }
+}
+
+.keywordRank {
+  font-size: 12px;
+  font-weight: 800;
+  color: $purple;
+  transition: color 0.15s;
+}
+
+/* ---------- 도서 정보 검색 ---------- */
+.searchBar {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 18px;
+
+  input {
+    flex: 1;
+    padding: 9px 12px;
+    font-size: 13px;
+    border: 1px solid $line;
+    border-radius: 8px;
+
+    &:focus-visible {
+      outline: 2px solid $purple;
+      outline-offset: 1px;
+    }
+  }
+
+  button {
+    padding: 0 18px;
+    font-size: 13px;
+    font-weight: 700;
+    color: #fff;
+    background: $purple;
+    border-radius: 8px;
+    white-space: nowrap;
+
+    &:hover {
+      background: $purple-dark;
+    }
+  }
+}
+
+/* ---------- 선택한 도서 상세 ---------- */
+.bookDetail {
+  display: flex;
+  gap: 16px;
+}
+
+.bookMeta {
+  min-width: 0;
+
+  h4 {
+    margin-top: 6px;
+    font-size: 15px;
+    font-weight: 700;
+    color: $ink;
+  }
+
+  > p {
+    margin-top: 4px;
+    font-size: 12px;
+    color: $muted;
+  }
+
+  dl {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px 14px;
+    margin-top: 14px;
+
+    div {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    dt {
+      font-size: 11px;
+      color: $muted;
+    }
+
+    dd {
+      font-size: 13px;
+      font-weight: 700;
+      color: $ink;
+    }
+  }
+}
+
+.bookDetail img {
+  width: 96px;
+  height: 132px;
+  object-fit: cover;
+  border-radius: 6px;
+  flex-shrink: 0;
+}
+
+.bookCategory {
+  display: inline-block;
+  padding: 2px 8px;
+  font-size: 11px;
+  font-weight: 600;
+  color: $purple;
+  background: $purple-soft;
+  border-radius: 4px;
+}
+
+/* ---------- 도서 판매 분석 (버블차트) ---------- */
+.bubbleChartWrap {
+  display: flex;
+  align-items: stretch;
+  gap: 6px;
+}
+
+.axisLabelVertical {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+
+  writing-mode: vertical-rl;
+  text-orientation: upright;
+  letter-spacing: 2px;
+
+  font-size: 11px;
+  font-weight: 600;
+  color: $muted;
+}
+
+.bubbleChartInner {
+  flex: 1;
+  min-width: 0;
+}
+
+/* ---------- 멀티미디어 독서 콘텐츠 ---------- */
+.mediaList {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px 12px;
+}
+
+.mediaItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.mediaChart {
+  position: relative;
+  width: 72px;
+  height: 72px;
+}
+
+.mediaPercent {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: 800;
+  color: $purple-dark;
+}
+
+.mediaTitle {
+  font-size: 12px;
+  font-weight: 600;
+  color: $ink;
+  text-align: center;
+}
+
+.empty {
+  padding: 28px 0;
+  text-align: center;
+  font-size: 13px;
+  color: $muted;
+}
+
+/* ---------- 반응형 ---------- */
+@media (max-width: 1100px) {
+  .booklayout {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 720px) {
+  .book {
+    padding: 20px;
+  }
+
+  .bookDetail {
+    flex-direction: column;
+  }
+}
