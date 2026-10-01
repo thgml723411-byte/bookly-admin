@@ -1,5 +1,5 @@
 import React from 'react'
-import {Routes,Route} from 'react-router-dom'
+import {Routes,Route,Navigate} from 'react-router-dom'
 import Header from './components/Header'
 import Sidebar from './components/Sidebar'
 import Home from './pages/Home'
@@ -23,6 +23,7 @@ const App = () => {
              <Route path='/users' element={<User/>} />
              <Route path='/books' element={<Book/>} />
              <Route path='/board' element={<Board/>} />
+             <Route path='/settings/*' element={<Navigate to='/' replace />} />
            </Routes>
          </main>
        </div>

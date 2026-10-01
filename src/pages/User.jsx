@@ -5,6 +5,7 @@ import { Chart as ChartJS, CategoryScale, LinearScale, PointElement, LineElement
 import {Line,Scatter,Radar} from 'react-chartjs-2' //사용허가를받아야함
 
 import styles from './User.module.scss'
+import { palette, chartColors } from '../styles/chartTheme'
 
 ChartJS.register(
     CategoryScale, LinearScale, PointElement, LineElement, RadialLinearScale,
@@ -12,14 +13,14 @@ ChartJS.register(
 )
 
 //picsum.photos 같은 외부 이미지 서비스에 의존하지 않도록 표지 이미지를 직접 생성
-const coverPalette = ['#7b5a99','#c2708e','#5f8f7b','#a9763f','#4f7fa0']
+const coverPalette = chartColors
 
 const makeCover = (title) => {
     const color = coverPalette[title.length % coverPalette.length]
     const initial = title.trim().charAt(0)
     const svg = `<svg xmlns='http://www.w3.org/2000/svg' width='220' height='300'>`
         + `<rect width='220' height='300' rx='18' fill='${color}'/>`
-        + `<text x='50%' y='50%' font-family='sans-serif' font-size='104' font-weight='700' fill='rgba(255,255,255,0.85)' text-anchor='middle' dominant-baseline='central'>${initial}</text>`
+        + `<text x='50%' y='50%' font-family='sans-serif' font-size='104' font-weight='700' fill='${color === palette.gold || color === palette.citron || color === palette.mauve ? palette.ink : palette.cream}' text-anchor='middle' dominant-baseline='central'>${initial}</text>`
         + `</svg>`
     return `data:image/svg+xml;utf8,${encodeURIComponent(svg)}`
 }
@@ -170,15 +171,15 @@ const User = () => {
             {
                 label : '신규회원',
                 data : [180,224,256,292,340,288],
-                borderColor : '#85559b',
-                backgroundColor :'#ee5065',
+                borderColor : palette.gold,
+                backgroundColor :palette.goldSoft,
                 borderWidth : 3,
                 tension : 0.4,
                 fill : true,
                 pointRadius : 5,
                 pointHoverRadius : 8,
-                pointBackgroundColor : 'white',
-                pointBorderColor : '#730b7c',
+                pointBackgroundColor : palette.cream,
+                pointBorderColor : palette.gold,
                 pointBorderWidth : 3,
             }
         ]
@@ -192,9 +193,9 @@ const User = () => {
                 display : false,
             },
             tooltip : {
-                backgroundColor : 'white',
-                titleColor : '#333',
-                bodyColor : '#333',
+                backgroundColor : palette.cream,
+                titleColor : palette.navy,
+                bodyColor : palette.navy,
                 padding : 12,
             }
         },
@@ -207,7 +208,7 @@ const User = () => {
                     display : false,
                 },
                 ticks : {
-                    color : '#333',
+                    color : palette.navy,
                     font : {
                         size : 12,
                         weight : 500,
@@ -217,13 +218,13 @@ const User = () => {
             y : {
                 beginAtZero : true,
                 grid : {
-                    color : '#ccc',
+                    color : palette.line,
                 },
                 border : {
                     display : false,
                 },
                 ticks : {
-                    color : '#333',
+                    color : palette.navy,
                     font : {
                         size : 12,
                         weight : 500,
@@ -243,8 +244,8 @@ const User = () => {
                  x : item.favorite,
                  y : item.read,
                })),
-               backgroundColor : '#470c4d',
-               borderColor : '#936099',
+               backgroundColor : palette.mauve,
+               borderColor : palette.navy,
                pointStyle : 'rectRot', //circle : 원모양, rect : 사각형, star : 별모양, triangle : 삼각형
                pointRadius : 3,
                pointHoverRadius : 5,
@@ -270,10 +271,10 @@ const User = () => {
              title : {
                 display : true,
                 text : '찜한 도서수',
-                color : '#333',
+                color : palette.navy,
              },
              grid : {
-                color : '#ccc',
+                color : palette.line,
              },
              border : {
                 display : false,
@@ -284,10 +285,10 @@ const User = () => {
              title : {
                 display : true,
                 text : '읽은 도서수',
-                color : '#333',
+                color : palette.navy,
              },
              grid : {
-                color : '#ccc',
+                color : palette.line,
              },
              border : {
                 display : false,
@@ -303,10 +304,10 @@ const User = () => {
             {
                 label : '회원 독서 성향',
                 data : [85,75,63,45,55],
-                backgroundColor : '#ccc',
+                backgroundColor : palette.line,
                 pointRadius : 3,
                 pointHoverRadius : 5,
-                pointBackgroundColor : '#380b3a',
+                pointBackgroundColor : palette.rust,
             },
         ],
     }
@@ -334,10 +335,10 @@ const User = () => {
                     display : false,
                 },
                 grid : {
-                    color : '#ccc',
+                    color : palette.line,
                 },
                 pointLabels : {
-                    color : '#333',
+                    color : palette.navy,
                     font : {
                         size : 12,
                         weight : 600,

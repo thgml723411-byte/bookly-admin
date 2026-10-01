@@ -2,13 +2,13 @@
    도서 관리 페이지 스타일
 ========================================================= */
 
-$purple: #7b5a99;
-$purple-dark: #5f3f80;
-$purple-soft: #f3edf8;
-$ink: #1f2430;
-$muted: #8a8f9c;
-$line: #e9e3e6;
-$line-soft: #efe7ea;
+$purple: var(--bookly-navy);
+$purple-dark: var(--bookly-rust);
+$purple-soft: var(--bookly-soft);
+$ink: var(--bookly-navy);
+$muted: var(--bookly-muted);
+$line: var(--bookly-line);
+$line-soft: var(--bookly-line-soft);
 $radius: 12px;
 
 .book {
@@ -27,7 +27,7 @@ $radius: 12px;
   h2 {
     font-size: 24px;
     font-weight: 800;
-    letter-spacing: -0.02em;
+    letter-spacing: 0;
     color: $ink;
   }
 
@@ -54,11 +54,11 @@ $radius: 12px;
 
 /* ---------- 카드 ---------- */
 .card {
-  background-color: #fff;
+  background-color: var(--bookly-surface);
   border: 1px solid $line;
   border-radius: $radius;
   padding: 20px;
-  box-shadow: 0 1px 2px rgba(31, 36, 48, 0.04);
+  box-shadow: 0 1px 2px rgba(71, 84, 128, 0.04);
 }
 
 .cardTitle {
@@ -67,12 +67,12 @@ $radius: 12px;
   padding: 12px 16px;
   margin-bottom: 18px;
   border-radius: 10px;
-  background: linear-gradient(135deg, $purple 0%, $purple-dark 100%);
+  background: var(--bookly-navy);
 
   h3 {
     font-size: 15px;
     font-weight: 700;
-    color: #fff;
+    color: var(--bookly-surface);
   }
 }
 
@@ -88,7 +88,7 @@ $radius: 12px;
     font-size: 12px;
     font-weight: 600;
     color: $muted;
-    background: #f5f3f7;
+    background: var(--bookly-soft);
     border: 1px solid transparent;
     border-radius: 999px;
     transition: all 0.15s;
@@ -111,8 +111,8 @@ $radius: 12px;
     font-size: 13px;
     font-weight: 600;
     color: $ink;
-    background: #fff
-      url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%237b5a99' stroke-width='3'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E")
+    background: var(--bookly-surface)
+      url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23475480' stroke-width='3'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E")
       no-repeat right 12px center;
     border: 1px solid $line;
     border-radius: 8px;
@@ -141,7 +141,7 @@ $radius: 12px;
   transition: background 0.15s;
 
   &:hover {
-    background: #f7f5f9;
+    background: var(--bookly-hover);
   }
 
   img {
@@ -202,7 +202,7 @@ $radius: 12px;
       font-size: 10px;
       font-weight: 700;
       text-transform: uppercase;
-      color: #fff;
+      color: var(--bookly-surface);
       background: $purple;
       border-radius: 4px;
     }
@@ -224,18 +224,18 @@ $radius: 12px;
   font-size: 13px;
   font-weight: 600;
   color: $ink;
-  background: #f5f3f7;
+  background: var(--bookly-soft);
   border: 1px solid $line;
   border-radius: 999px;
   transition: all 0.15s;
 
   &:hover {
-    color: #fff;
+    color: var(--bookly-surface);
     background: $purple;
     border-color: $purple;
 
     .keywordRank {
-      color: #fff;
+      color: var(--bookly-surface);
     }
   }
 }
@@ -270,7 +270,7 @@ $radius: 12px;
     padding: 0 18px;
     font-size: 13px;
     font-weight: 700;
-    color: #fff;
+    color: var(--bookly-surface);
     background: $purple;
     border-radius: 8px;
     white-space: nowrap;
@@ -361,7 +361,7 @@ $radius: 12px;
 
   writing-mode: vertical-rl;
   text-orientation: upright;
-  letter-spacing: 2px;
+  letter-spacing: 0;
 
   font-size: 11px;
   font-weight: 600;

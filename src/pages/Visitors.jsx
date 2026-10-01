@@ -6,6 +6,7 @@ import {Chart as ChartJS,CategoryScale, LinearScale, PointElement, LineElement, 
 import {Line,Bar} from 'react-chartjs-2'
 
 import styles from './Visitors.module.scss'
+import { palette } from '../styles/chartTheme'
 
 ChartJS.register(
     CategoryScale, //x축 데이터
@@ -135,15 +136,15 @@ const Visitors = () => {
             {
                 label : '전체방문자', //y축 데이터 라벨
                 data : [420,610,310,550,710,770,600],
-                borderColor : '#E20942',
-                backgroundColor : 'rgba(226,9,66,0.08)',
+                borderColor : palette.gold,
+                backgroundColor : palette.goldSoft,
                 borderWidth : 3,
                 tension : 0.3,
                 fill : true,
                 pointRadius : 5,
                 pointHoverRadius : 7,
-                pointBorderColor : '#E20942',
-                pointBackgroundColor : 'white',
+                pointBorderColor : palette.gold,
+                pointBackgroundColor : palette.cream,
                 pointBorderWidth : 1,
 
                 yAxisID : 'y',
@@ -152,15 +153,15 @@ const Visitors = () => {
             {
                 label : '평균 체류 시간', //y축 데이터 라벨
                 data : [1.5,4.5,5.9,7.7,8.5,6.5,3.3],
-                borderColor : '#7B5A99',
-                backgroundColor : 'rgba(123,90,153,0.08)',
+                borderColor : palette.navy,
+                backgroundColor : palette.navySoft,
                 borderWidth : 3,
                 tension : 0.3,
                 fill : true,
                 pointRadius : 5,
                 pointHoverRadius : 7,
-                pointBorderColor : '#7B5A99',
-                pointBackgroundColor : 'white',
+                pointBorderColor : palette.navy,
+                pointBackgroundColor : palette.cream,
                 pointBorderWidth : 1,
 
                 yAxisID : 'y1',
@@ -232,13 +233,13 @@ const Visitors = () => {
             {
                label : 'PC',
                data : [210,350,420,550,380,110,290],
-               backgroundColor : '#3d054e',
+               backgroundColor : palette.navy,
                borderRadius : 6,
             },
             {
                label : '모바일',
                data : [210,350,420,550,380,110,190],
-               backgroundColor : '#E20942',
+               backgroundColor : palette.gold,
                borderRadius : 6,
             }
         ]//y축
@@ -277,7 +278,7 @@ const Visitors = () => {
         y:{
            beginAtZero : true,
            grid : {
-            color : '#ccc',            
+            color : palette.line,            
            }
         }
       }

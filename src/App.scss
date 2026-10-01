@@ -1,0 +1,39 @@
+:root {
+  --bookly-navy: #475480;
+  --bookly-rust: #7F3B25;
+  --bookly-gold: #B57056;
+  --bookly-citron: #A7993C;
+  --bookly-cream: #DCCD8B;
+  --bookly-mauve: var(--bookly-cream);
+  --bookly-surface: color-mix(in srgb, var(--bookly-cream) 22%, white);
+  --bookly-canvas: color-mix(in srgb, var(--bookly-cream) 45%, white);
+  --bookly-muted: var(--bookly-rust);
+  --bookly-soft: color-mix(in srgb, var(--bookly-navy) 8%, var(--bookly-surface));
+  --bookly-hover: color-mix(in srgb, var(--bookly-citron) 18%, var(--bookly-surface));
+  --bookly-line: color-mix(in srgb, var(--bookly-navy) 18%, var(--bookly-surface));
+  --bookly-line-soft: color-mix(in srgb, var(--bookly-navy) 10%, var(--bookly-surface));
+  --bookly-danger-soft: color-mix(in srgb, var(--bookly-rust) 12%, var(--bookly-surface));
+}
+
+body {
+  color: var(--bookly-navy);
+  background: var(--bookly-canvas);
+}
+
+input,
+select,
+textarea {
+  color: var(--bookly-navy);
+  background-color: var(--bookly-surface);
+  min-width: 0;
+}
+
+::selection {
+  color: var(--bookly-navy);
+  background: var(--bookly-citron);
+}
+
+:focus-visible {
+  outline: 2px solid var(--bookly-rust);
+  outline-offset: 3px;
+}

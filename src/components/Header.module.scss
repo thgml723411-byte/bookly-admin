@@ -11,15 +11,15 @@
   height: 64px;
   padding: 0 24px;
 
-  background-color: #fff;
-  border-bottom: 1px solid #efe7ea;
+  background-color: var(--bookly-cream);
+  border-bottom: 1px solid var(--bookly-line-soft);
 }
 
 .logo {
   font-size: 22px;
   font-weight: 800;
-  letter-spacing: -0.02em;
-  color: #7B5A99;
+  letter-spacing: 0;
+  color: var(--bookly-navy);
 }
 
 .profile {
@@ -38,9 +38,9 @@
 
   font-size: 14px;
   font-weight: 700;
-  color: #fff;
+  color: var(--bookly-cream);
 
-  background-color: #E20942;
+  background-color: var(--bookly-rust);
   border-radius: 50%;
 }
 
@@ -52,11 +52,11 @@
   strong {
     font-size: 14px;
     font-weight: 700;
-    color: #1f2430;
+    color: var(--bookly-navy);
   }
 
   span {
     font-size: 12px;
-    color: #8a8f9c;
+    color: var(--bookly-muted);
   }
 }

@@ -12,5 +12,11 @@
 .main{
     flex: 1;
     min-width: 0;
-    background: linear-gradient(160deg, #f6f8f3 0%, #f1eff2 55%, #f3e9ee 100%);
+    background: var(--bookly-canvas);
+}
+
+@media (max-width: 720px) {
+    .container {
+        flex-direction: column;
+    }
 }

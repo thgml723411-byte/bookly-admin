@@ -15,18 +15,18 @@
 .title {
   font-size: 24px;
   font-weight: 800;
-  letter-spacing: -0.02em;
-  color: #1f2430;
+  letter-spacing: 0;
+  color: var(--bookly-navy);
 }
 
 .desc {
   font-size: 14px;
-  color: #8a8f9c;
+  color: var(--bookly-muted);
 }
 
 .card {
-  background-color: #fff;
-  border: 1px solid #e9e3e6;
+  background-color: var(--bookly-surface);
+  border: 1px solid var(--bookly-line);
   border-radius: 10px;
   padding: 28px;
 }
@@ -40,20 +40,20 @@
 
   margin-bottom: 24px;
   padding-bottom: 20px;
-  border-bottom: 1px solid #efe7ea;
+  border-bottom: 1px solid var(--bookly-line-soft);
 }
 
 .cardTitle {
   font-size: 17px;
   font-weight: 700;
-  color: #1f2430;
+  color: var(--bookly-navy);
   margin-bottom: 4px;
 }
 
 .cardSubtitle {
   font-size: 13px;
   font-weight: 600;
-  color: #7B5A99;
+  color: var(--bookly-navy);
 }
 
 .weekButtons {
@@ -66,7 +66,7 @@
 
   font-size: 13px;
   font-weight: 600;
-  color: #9a9a9a;
+  color: var(--bookly-muted);
 
   background: none;
   border: 0;
@@ -74,16 +74,16 @@
   transition: color 0.2s, border-color 0.2s;
 
   &:hover {
-    color: #1f2430;
+    color: var(--bookly-navy);
   }
 }
 
 .weekButtonActive {
-  color: #1f2430;
-  border-bottom-color: #7B5A99;
+  color: var(--bookly-navy);
+  border-bottom-color: var(--bookly-navy);
 
   &:hover {
-    color: #1f2430;
+    color: var(--bookly-navy);
   }
 }
 
@@ -113,7 +113,7 @@
   flex-direction: column;
 
   padding-left: 28px;
-  border-left: 1px solid #efe7ea;
+  border-left: 1px solid var(--bookly-line-soft);
 }
 
 .donutCanvas {
@@ -142,7 +142,7 @@
   flex-direction: column;
 
   padding-left: 28px;
-  border-left: 1px solid #efe7ea;
+  border-left: 1px solid var(--bookly-line-soft);
 }
 
 .pieCanvas {
@@ -166,7 +166,7 @@
     padding-left: 0;
     padding-top: 24px;
     border-left: 0;
-    border-top: 1px solid #efe7ea;
+    border-top: 1px solid var(--bookly-line-soft);
   }
 
   .donutCanvas,

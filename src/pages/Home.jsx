@@ -4,6 +4,7 @@ import {Chart as ChartJS,CategoryScale, LinearScale, PointElement, LineElement, 
         Tooltip, Filler, Legend} from 'chart.js' //
 import {Line,Doughnut,Pie,Bar} from 'react-chartjs-2' //
 import styles from './Home.module.scss'
+import { palette } from '../styles/chartTheme'
 
 ChartJS.register(
     CategoryScale, //x축 데이터
@@ -86,14 +87,14 @@ const Home = () => {
       {
         label : '방문자수', //y축 데이터 라벨
         data : currentData.visitors,
-        borderColor : '#E20942',
-        backgroundColor : 'rgba(226,9,66,0.08)',
+        borderColor : palette.gold,
+        backgroundColor : palette.goldSoft,
         borderWidth : 2,
         fill : true,
         pointRadius : 8,
         pointHoverRadius : 12,
-        pointBorderColor : '#E20942',
-        pointBackgroundColor : 'white',
+        pointBorderColor : palette.gold,
+        pointBackgroundColor : palette.cream,
         pointBorderWidth : 2,
       }
      ]
@@ -108,11 +109,11 @@ const Home = () => {
         },
         tooltip : {
            displayColors : false,
-           titleColor : '#333',
-           backgroundColor : '#fff',
-           bodyColor : '#333',
+           titleColor : palette.navy,
+           backgroundColor : palette.cream,
+           bodyColor : palette.navy,
            borderWidth : 1,
-           borderColor : '#eee',
+           borderColor : palette.line,
            padding : 12,
         }
       },
@@ -122,7 +123,7 @@ const Home = () => {
              display : false,
            },
            ticks : {
-              color : '#333',
+              color : palette.navy,
               font : {
                 size : 13,
                 weight : '500',
@@ -138,10 +139,10 @@ const Home = () => {
              display : false,
            },
            grid : {
-              color : '#ece6ea',
+              color : palette.line,
            },
            ticks : {
-              color : '#333',
+              color : palette.navy,
               font : {
                 size : 13,
               },
@@ -157,13 +158,13 @@ const Home = () => {
       {
          data : [32,21,18,17,12],
          backgroundColor : [
-            '#E20942', //소설
-            '#7B5A99', //에세이
-            '#3D8A4A', //자기개발
-            '#C69A3B', //경제
-            '#0A87A0', //인문
+            palette.gold, //소설
+            palette.navy, //에세이
+            palette.citron, //자기개발
+            palette.rust, //경제
+            palette.mauve, //인문
          ],
-         borderColor : 'white',
+         borderColor : palette.cream,
          borderWidth : 4,
          hoverOffset : 8,
       }
@@ -190,7 +191,7 @@ const Home = () => {
             padding : 15,
             usePointStyle : true,
             pointStyle : 'circle',
-            color : '#333',
+            color : palette.navy,
             font : {
                size : 12,
             }
@@ -198,11 +199,11 @@ const Home = () => {
        },
        tooltip : {
            displayColors : false,
-           titleColor : '#333',
-           backgroundColor : '#fff',
-           bodyColor : '#333',
+           titleColor : palette.navy,
+           backgroundColor : palette.cream,
+           bodyColor : palette.navy,
            borderWidth : 1,
-           borderColor : '#eee',
+           borderColor : palette.line,
            padding : 12,
         }
      }
@@ -214,11 +215,11 @@ const Home = () => {
       {
          data : [31,11,58],
          backgroundColor : [
-            '#E20942', //pc
-            '#7B5A99', //테블릿
-            '#C69A3B', //모바일
+            palette.gold, //pc
+            palette.navy, //테블릿
+            palette.rust, //모바일
          ],
-        borderColor : 'white',
+        borderColor : palette.cream,
         borderWidth : 4,
         hoverOffset : 8,
       }
@@ -239,7 +240,7 @@ const Home = () => {
             padding : 15,
             usePointStyle : true,
             pointStyle : 'circle',
-            color : '#333',
+            color : palette.navy,
             font : {
                size : 12,
             }
@@ -247,11 +248,11 @@ const Home = () => {
         },
         tooltip : {
            displayColors : false,
-           titleColor : '#333',
-           backgroundColor : '#fff',
-           bodyColor : '#333',
+           titleColor : palette.navy,
+           backgroundColor : palette.cream,
+           bodyColor : palette.navy,
            borderWidth : 1,
-           borderColor : '#eee',
+           borderColor : palette.line,
            padding : 12,
         }
       }
@@ -264,7 +265,7 @@ const Home = () => {
         {
           label : '방문자수',
           data : [15, 8, 60, 180, 260, 300, 340, 190],
-          backgroundColor : '#E20942',
+          backgroundColor : palette.gold,
           borderRadius : {
              topLeft : 4,
              topRight : 4,
@@ -286,11 +287,11 @@ const Home = () => {
         },
         tooltip : {
            displayColors : false,
-           titleColor : '#333',
-           backgroundColor : '#fff',
-           bodyColor : '#333',
+           titleColor : palette.navy,
+           backgroundColor : palette.cream,
+           bodyColor : palette.navy,
            borderWidth : 1,
-           borderColor : '#eee',
+           borderColor : palette.line,
            padding : 12,
         }
       },
@@ -300,7 +301,7 @@ const Home = () => {
              display : false,
            },
            ticks : {
-              color : '#333',
+              color : palette.navy,
               font : {
                 size : 12,
               },
@@ -315,10 +316,10 @@ const Home = () => {
              display : false,
            },
            grid : {
-              color : '#ece6ea',
+              color : palette.line,
            },
            ticks : {
-              color : '#333',
+              color : palette.navy,
               font : {
                 size : 13,
               },

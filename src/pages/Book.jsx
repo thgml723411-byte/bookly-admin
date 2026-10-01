@@ -5,7 +5,7 @@ import { Chart as ChartJS, CategoryScale, LinearScale, PointElement, LineElement
 import { Doughnut,Bubble,PolarArea} from 'react-chartjs-2'
 
 import styles from './Book.module.scss'
-import { color } from 'chart.js/helpers'
+import { palette, chartColors } from '../styles/chartTheme'
 
 ChartJS.register(
     CategoryScale, LinearScale, PointElement, LineElement, RadialLinearScale,
@@ -27,7 +27,7 @@ const MediaDoughnut = ({title,value}) => {
         datasets : [
             {
                 data : [value,100-value],
-                backgroundColor : ['#7b5a99','#f1eef2'],
+                backgroundColor : [palette.navy,palette.mauve],
                 borderRadius :10,
                 borderWidth : 0,
                 hoverOffset : 2,
@@ -60,14 +60,14 @@ const MediaDoughnut = ({title,value}) => {
 }
 
 //picsum.photos 같은 외부 이미지 서비스에 의존하지 않도록 표지 이미지를 직접 생성
-const coverPalette = ['#7b5a99','#c2708e','#5f8f7b','#a9763f','#4f7fa0','#8a6bb0','#b5543f','#5a9a8f','#9b6fa5','#6f7fb5']
+const coverPalette = chartColors
 
 const makeCover = (title, id) => {
     const color = coverPalette[(id - 1) % coverPalette.length]
     const initial = title.trim().charAt(0)
     const svg = `<svg xmlns='http://www.w3.org/2000/svg' width='220' height='300'>`
         + `<rect width='220' height='300' rx='18' fill='${color}'/>`
-        + `<text x='50%' y='50%' font-family='sans-serif' font-size='104' font-weight='700' fill='rgba(255,255,255,0.85)' text-anchor='middle' dominant-baseline='central'>${initial}</text>`
+        + `<text x='50%' y='50%' font-family='sans-serif' font-size='104' font-weight='700' fill='${color === palette.gold || color === palette.citron || color === palette.mauve ? palette.ink : palette.cream}' text-anchor='middle' dominant-baseline='central'>${initial}</text>`
         + `</svg>`
     return `data:image/svg+xml;utf8,${encodeURIComponent(svg)}`
 }
@@ -222,7 +222,8 @@ const Book = () => {
                     title : item.title,
                     sales : item.sales,
                 })),
-                backgroundColor : bookData.map((item,index)=>`hsla(${index*25},55%,75%,0.7)`),
+                backgroundColor : bookData.map((_,index)=>chartColors[index % chartColors.length] + 'B3'),
+                borderColor : bookData.map((_,index)=>chartColors[index % chartColors.length]),
                 borderWidth : 1,
             }
         ]
@@ -236,8 +237,8 @@ const Book = () => {
               display : false,
            },
            tooltip : {
-             titleColor : '#333',
-             bodyColor : '#333',
+             titleColor : palette.navy,
+             bodyColor : palette.navy,
              padding : 12,
              callbacks : {
                 title : (item) => item[0].raw.title,
@@ -255,23 +256,23 @@ const Book = () => {
                 title : {
                     display : true,
                     text : '도서가격',
-                    color : '#777',
+                    color : palette.rust,
                 },
                 grid : {
-                    color : '#eee'
+                    color : palette.line
                 },
                 ticks : {
-                    color : '#333',
+                    color : palette.navy,
                     callback : (value) => `${value/10000}만`,
                 }
             },
             y : {
                 beginAtZero : true,
                 grid : {
-                    color : '#eee'
+                    color : palette.line
                 },
                 ticks : {
-                    color : '#333',
+                    color : palette.navy,
                 }
             }
         }
@@ -296,7 +297,7 @@ const Book = () => {
                     const avg = items.reduce((sum,item)=>sum + (item.daily + item.weekly + item.monthly) / 3, 0) / items.length
                     return Math.round(avg)
                 }),
-                backgroundColor : genreLabels.map((_,index)=>`hsla(${index*40},65%,65%,0.7)`),
+                backgroundColor : genreLabels.map((_,index)=>chartColors[index % chartColors.length]),
                 borderWidth : 1,
             }
         ]
@@ -310,7 +311,7 @@ const Book = () => {
                 position : 'right',
                 labels : {
                     boxWidth : 10,
-                    color : '#333',
+                    color : palette.navy,
                 }
             },
             tooltip : {
@@ -327,7 +328,7 @@ const Book = () => {
                     display : false,
                 },
                 grid : {
-                    color : '#eee',
+                    color : palette.line,
                 }
             }
         }

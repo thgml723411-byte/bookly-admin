@@ -5,6 +5,8 @@ import { HelmetProvider } from 'react-helmet-async'
 
 import App from './App.jsx'
 import './styles/reset.scss'
+import './App.scss'
+import './styles/chartTheme.js'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>

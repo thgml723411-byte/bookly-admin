@@ -1,5 +1,5 @@
-import React, {useRef} from 'react'
-import {NavLink} from 'react-router-dom'
+import React, {useLayoutEffect, useRef} from 'react'
+import {NavLink, useLocation} from 'react-router-dom'
 import gasp from 'gsap'
 
 import styles from './Sidebar.module.scss'
@@ -7,22 +7,23 @@ import styles from './Sidebar.module.scss'
 const Sidebar = () => {
   const navRef = useRef(null)
   const boxRef = useRef(null)
+  const {pathname} = useLocation()
 
-  const menufnc = (e) => {
-    const menu = e.currentTarget
-    const navbox = navRef.current.getBoundingClientRect()
-    const menuBox = menu.getBoundingClientRect()
+  useLayoutEffect(() => {
+    const moveIndicator = () => {
+      const menu = navRef.current.querySelector('[aria-current="page"]')
+      if (!menu) return
+      const navbox = navRef.current.getBoundingClientRect()
+      const menuBox = menu.getBoundingClientRect()
 
-    const targetY = menuBox.top - navbox.top
+      gasp.killTweensOf(boxRef.current)
+      gasp.set(boxRef.current, {y: menuBox.top - navbox.top})
+    }
 
-    gasp.killTweensOf(boxRef.current)
-    gasp.to(boxRef.current,{
-      y : targetY,
-      delay : 0.15,
-      duration : 0.65,
-      ease : 'power2.inOut',
-    })
-  }
+    moveIndicator()
+    window.addEventListener('resize', moveIndicator)
+    return () => window.removeEventListener('resize', moveIndicator)
+  }, [pathname])
 
   return (
     <aside className={styles.sidebar}>
@@ -33,12 +34,12 @@ const Sidebar = () => {
           <span ref={boxRef} className={styles.moveBox} />
 
         {/* 네비들 */}
-          <NavLink to = '/' onClick={menufnc} className={({isActive})=> isActive ? styles.active : '' }> 대시보드 </NavLink>
-          <NavLink to = '/visitors' onClick={menufnc} className={({isActive})=> isActive ? styles.active : '' }> 방문자 </NavLink>
-          <NavLink to = '/users' onClick={menufnc} className={({isActive})=> isActive ? styles.active : '' }> 사용자 </NavLink>
-          <NavLink to = '/books' onClick={menufnc} className={({isActive})=> isActive ? styles.active : '' }> 도서 </NavLink>
-          <NavLink to = '/board' onClick={menufnc} className={({isActive})=> isActive ? styles.active : '' }> 게시판 </NavLink>
-          <NavLink to = '/settings' onClick={menufnc} className={({isActive})=> isActive ? styles.active : '' }> 설정 </NavLink>
+          <NavLink to = '/' className={({isActive})=> isActive ? styles.active : '' }> 대시보드 </NavLink>
+          <NavLink to = '/visitors' className={({isActive})=> isActive ? styles.active : '' }> 방문자 </NavLink>
+          <NavLink to = '/users' className={({isActive})=> isActive ? styles.active : '' }> 사용자 </NavLink>
+          <NavLink to = '/books' className={({isActive})=> isActive ? styles.active : '' }> 도서 </NavLink>
+          <NavLink to = '/board' className={({isActive})=> isActive ? styles.active : '' }> 게시판 </NavLink>
+          <button type='button' className={styles.disabledMenu} disabled> 설정 </button>
       
        </nav>
     </aside>

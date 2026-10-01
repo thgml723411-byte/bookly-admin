@@ -2,16 +2,16 @@
    게시판 관리 페이지 스타일
 ========================================================= */
 
-$purple: #7b5a99;
-$purple-dark: #5f3f80;
-$purple-soft: #f3edf8;
-$ink: #1f2430;
-$muted: #8a8f9c;
-$line: #e9e3e6;
-$line-soft: #efe7ea;
+$purple: var(--bookly-navy);
+$purple-dark: var(--bookly-rust);
+$purple-soft: var(--bookly-soft);
+$ink: var(--bookly-navy);
+$muted: var(--bookly-muted);
+$line: var(--bookly-line);
+$line-soft: var(--bookly-line-soft);
 $radius: 12px;
-$danger: #d1495b;
-$danger-soft: #fbe9eb;
+$danger: var(--bookly-rust);
+$danger-soft: var(--bookly-danger-soft);
 
 .board {
   display: flex;
@@ -29,7 +29,7 @@ $danger-soft: #fbe9eb;
   h2 {
     font-size: 24px;
     font-weight: 800;
-    letter-spacing: -0.02em;
+    letter-spacing: 0;
     color: $ink;
   }
 
@@ -42,7 +42,7 @@ $danger-soft: #fbe9eb;
 /* ---------- 2열 레이아웃 ---------- */
 .gridBoard {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   align-items: start;
   gap: 24px;
 }
@@ -51,12 +51,13 @@ $danger-soft: #fbe9eb;
 .card {
   display: flex;
   flex-direction: column;
+  min-width: 0;
 
-  background-color: #fff;
+  background-color: var(--bookly-surface);
   border: 1px solid $line;
   border-radius: $radius;
   padding: 20px;
-  box-shadow: 0 1px 2px rgba(31, 36, 48, 0.04);
+  box-shadow: 0 1px 2px rgba(71, 84, 128, 0.04);
 }
 
 .cardTitle {
@@ -68,18 +69,18 @@ $danger-soft: #fbe9eb;
   padding: 14px 18px;
   margin-bottom: 18px;
   border-radius: 10px;
-  background: linear-gradient(135deg, $purple 0%, $purple-dark 100%);
+  background: var(--bookly-navy);
 
   h3 {
     font-size: 15px;
     font-weight: 700;
-    color: #fff;
+    color: var(--bookly-surface);
   }
 
   p {
     margin-top: 3px;
     font-size: 12px;
-    color: rgba(255, 255, 255, 0.75);
+    color: rgba(220, 205, 139, 0.95);
   }
 }
 
@@ -88,8 +89,8 @@ $danger-soft: #fbe9eb;
   padding: 4px 12px;
   font-size: 12px;
   font-weight: 700;
-  color: #fff;
-  background: rgba(255, 255, 255, 0.2);
+  color: var(--bookly-surface);
+  background: rgba(220, 205, 139, 0.2);
   border-radius: 999px;
 }
 
@@ -119,8 +120,8 @@ $danger-soft: #fbe9eb;
     font-size: 13px;
     font-weight: 600;
     color: $ink;
-    background: #fff
-      url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%237b5a99' stroke-width='3'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E")
+    background: var(--bookly-surface)
+      url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23475480' stroke-width='3'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E")
       no-repeat right 12px center;
     border: 1px solid $line;
     border-radius: 8px;
@@ -154,7 +155,7 @@ $danger-soft: #fbe9eb;
   thead th {
     position: sticky;
     top: 0;
-    background: #faf7f9;
+    background: var(--bookly-hover);
     font-weight: 700;
     color: $muted;
     border-bottom: 1px solid $line-soft;
@@ -162,11 +163,11 @@ $danger-soft: #fbe9eb;
 
   tbody tr {
     cursor: pointer;
-    border-bottom: 1px solid #f2edf0;
+    border-bottom: 1px solid var(--bookly-soft);
     transition: background 0.15s;
 
     &:hover {
-      background: #f7f5f9;
+      background: var(--bookly-hover);
     }
   }
 
@@ -177,7 +178,7 @@ $danger-soft: #fbe9eb;
 
 .rating {
   color: $purple;
-  letter-spacing: 1px;
+  letter-spacing: 0;
 }
 
 /* ---------- 이벤트 피드 목록 ---------- */
@@ -197,7 +198,7 @@ $danger-soft: #fbe9eb;
 
   &:hover {
     border-color: $line;
-    box-shadow: 0 2px 8px rgba(31, 36, 48, 0.06);
+    box-shadow: 0 2px 8px rgba(71, 84, 128, 0.06);
   }
 }
 
@@ -246,7 +247,7 @@ $danger-soft: #fbe9eb;
 
 .badgeClose {
   color: $muted;
-  background: #f1eef2;
+  background: var(--bookly-soft);
 }
 
 .feedBtns {
@@ -260,7 +261,7 @@ $danger-soft: #fbe9eb;
     font-size: 12px;
     font-weight: 600;
     color: $ink;
-    background: #fff;
+    background: var(--bookly-surface);
     border: 1px solid $line;
     border-radius: 7px;
     white-space: nowrap;
@@ -272,7 +273,7 @@ $danger-soft: #fbe9eb;
       border-color: $purple-soft;
 
       &:hover {
-        color: #fff;
+        color: var(--bookly-surface);
         background: $purple;
         border-color: $purple;
       }
@@ -302,7 +303,7 @@ $danger-soft: #fbe9eb;
   justify-content: center;
   padding: 20px;
 
-  background: rgba(31, 36, 48, 0.45);
+  background: rgba(71, 84, 128, 0.45);
 }
 
 .modal {
@@ -311,10 +312,10 @@ $danger-soft: #fbe9eb;
   max-height: 85vh;
   overflow-y: auto;
 
-  background: #fff;
+  background: var(--bookly-surface);
   border-radius: 14px;
   padding: 24px;
-  box-shadow: 0 20px 50px rgba(31, 36, 48, 0.25);
+  box-shadow: 0 20px 50px rgba(71, 84, 128, 0.25);
 }
 
 .modalHead {
@@ -330,7 +331,7 @@ $danger-soft: #fbe9eb;
   p {
     font-size: 11px;
     font-weight: 700;
-    letter-spacing: 0.05em;
+    letter-spacing: 0;
     color: $purple;
   }
 
@@ -348,12 +349,12 @@ $danger-soft: #fbe9eb;
     font-size: 14px;
     font-weight: 700;
     color: $muted;
-    background: #f2edf0;
+    background: var(--bookly-soft);
     border-radius: 8px;
 
     &:hover {
       color: $ink;
-      background: #e7dfe6;
+      background: var(--bookly-hover);
     }
   }
 }
@@ -369,7 +370,7 @@ $danger-soft: #fbe9eb;
     gap: 12px;
 
     padding: 11px 0;
-    border-bottom: 1px solid #f4eff2;
+    border-bottom: 1px solid var(--bookly-line-soft);
 
     &:last-child {
       border-bottom: 0;
@@ -391,7 +392,7 @@ $danger-soft: #fbe9eb;
 /* ---------- 반응형 ---------- */
 @media (max-width: 1100px) {
   .gridBoard {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
   }
 }
 
